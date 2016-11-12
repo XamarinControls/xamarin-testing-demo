@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<core:MvxContentPage x:TypeArguments="local:ViewModels.TodoListViewModel"
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Todo"
+             xmlns:core="clr-namespace:MvvmCross.Forms.Presenter.Core;assembly=MvvmCross.Forms.Presenter.Core"
+             x:Class="Todo.Pages.TodoListPage"
+             Title="{Binding Title}">
+
+  <StackLayout>
+    <ListView ItemsSource="{Binding Items}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal">
+              <Label Text="{Binding Description}" Margin="10" HorizontalOptions="FillAndExpand"></Label>
+              <Button Text=" X " Command="{Binding DeleteCommand}" CommandParameter="{Binding}"></Button>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    
+    <StackLayout Orientation="Horizontal">
+      <Entry Text="{Binding NewItemDescription}" HorizontalOptions="FillAndExpand"></Entry>
+      <Button Text=" + " Command="{Binding AddCommand}"></Button>
+    </StackLayout>
+  </StackLayout>
+</core:MvxContentPage>
