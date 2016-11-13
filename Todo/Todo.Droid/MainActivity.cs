@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Views;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
 using MvvmCross.Forms.Presenter.Droid;
@@ -8,7 +9,9 @@ using MvvmCross.Platform;
 
 namespace Todo.Droid
 {
-    [Activity(Label = "Todo", Icon = "@drawable/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Todo", Icon = "@drawable/icon", Theme = "@style/MainTheme", 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+        WindowSoftInputMode = SoftInput.AdjustPan | SoftInput.AdjustResize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)

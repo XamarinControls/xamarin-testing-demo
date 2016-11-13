@@ -6,7 +6,6 @@
              xmlns:core="clr-namespace:MvvmCross.Forms.Presenter.Core;assembly=MvvmCross.Forms.Presenter.Core"
              x:Class="Todo.Pages.TodoListPage"
              Title="{Binding Title}">
-
   <StackLayout>
     <ListView ItemsSource="{Binding Items}">
       <ListView.ItemTemplate>
