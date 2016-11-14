@@ -32,7 +32,7 @@ namespace Todo.Tests.UI.Specflow.StepDefinitions
         [Then(@"the task ""(.*)"" should be added to the list")]
         public void ThenTheTaskShouldBeAddedToTheList(string task)
         {
-            _app.WaitForElement(_page.TaskLabel(task));
+            _app.WaitForElement(_page.LabelOfTask(task));
         }
 
         [When(@"I delete the ""(.*)"" task")]
@@ -44,7 +44,7 @@ namespace Todo.Tests.UI.Specflow.StepDefinitions
         [Then(@"the task ""(.*)"" should be removed from the list")]
         public void ThenTheTaskShouldBeRemovedFromTheList(string task)
         {
-            _app.WaitForNoElement(_page.TaskLabel(task));
+            _app.WaitForNoElement(_page.LabelOfTask(task));
         }
     }
 }

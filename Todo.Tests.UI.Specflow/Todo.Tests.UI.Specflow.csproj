@@ -66,7 +66,6 @@
       <Link>AppInitializer.cs</Link>
     </Compile>
     <Compile Include="StepDefinitions\StartPageSteps.cs" />
-    <Compile Include="Tests.cs" />
     <Compile Include="Todo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

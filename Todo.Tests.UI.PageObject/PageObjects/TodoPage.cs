@@ -11,10 +11,10 @@ namespace Todo.Tests.UI.PageObjects
 
         public Func<AppQuery, AppQuery> DeleteButtonOfTask(string task)
         {
-            return q => TaskLabel(task)(q).Parent(2).Descendant().Marked("DeleteButton");
+            return q => LabelOfTask(task)(q).Parent(2).Descendant().Marked("DeleteButton");
         }
 
-        public Func<AppQuery, AppQuery> TaskLabel(string task)
+        public Func<AppQuery, AppQuery> LabelOfTask(string task)
         {
             return q => Tasks(q).Descendant().Text(task);
         }

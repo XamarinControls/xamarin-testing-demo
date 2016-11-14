@@ -8,7 +8,7 @@ namespace Todo.Tests.UI.Specflow
     [TestFixture(Platform.iOS)]
     public partial class TodoFeature
     {
-        private Platform _platform;
+        private readonly Platform _platform;
         private IApp _app;
 
         public TodoFeature(Platform platform)
@@ -20,7 +20,7 @@ namespace Todo.Tests.UI.Specflow
         public void BeforeEachTest()
         {
             _app = AppInitializer.StartApp(_platform);
-            FeatureContext.Current.Add("App", _app);
+            FeatureContext.Current["App"] = _app;
         }
 
         [AfterStep]

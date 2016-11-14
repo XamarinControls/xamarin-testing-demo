@@ -8,20 +8,19 @@ namespace Todo.Tests.UI.PageObject
     [TestFixture(Platform.iOS)]
     public class Tests
     {
-        IApp app;
-        Platform platform;
+        private readonly Platform _platform;
+        private IApp _app;
         private TodoPage _page;
 
         public Tests(Platform platform)
         {
-            this.platform = platform;
+            _platform = platform;
         }
 
         [SetUp]
         public void BeforeEachTest()
         {
-            app = AppInitializer.StartApp(platform);
-
+            _app = AppInitializer.StartApp(_platform);
             _page = new TodoPage();
         }
 
@@ -29,25 +28,25 @@ namespace Todo.Tests.UI.PageObject
         public void AddTask()
         {
             var task = "Added Item";
-            app.Tap(_page.AddEntry);
-            app.EnterText(_page.AddEntry, task);
-            app.Tap(_page.AddButton);
-            app.WaitForElement(_page.TaskLabel(task));
+            _app.Tap(_page.AddEntry);
+            _app.EnterText(_page.AddEntry, task);
+            _app.Tap(_page.AddButton);
+            _app.WaitForElement(_page.LabelOfTask(task));
         }
 
         [Test]
         public void DeleteTask()
         {
             var task = "Delete me";
-            app.Tap(_page.DeleteButtonOfTask(task));
+            _app.Tap(_page.DeleteButtonOfTask(task));
 
-            app.WaitForNoElement(_page.TaskLabel(task));
+            _app.WaitForNoElement(_page.LabelOfTask(task));
         }
 
         [Test]
         public void Repl()
         {
-            app.Repl();
+            _app.Repl();
         }
     }
 }

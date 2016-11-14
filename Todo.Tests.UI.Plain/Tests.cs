@@ -1,9 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Xamarin.UITest;
-using Xamarin.UITest.Queries;
 
 namespace Todo.Tests.UI.Plain
 {
@@ -11,25 +7,28 @@ namespace Todo.Tests.UI.Plain
     //[TestFixture(Platform.iOS)]
     public class Tests
     {
-        IApp app;
-        Platform platform;
+        readonly Platform _platform;
+        private IApp _app;
 
         public Tests(Platform platform)
         {
-            this.platform = platform;
+            this._platform = platform;
         }
 
         [SetUp]
         public void BeforeEachTest()
         {
-            app = AppInitializer.StartApp(platform);
+            _app = AppInitializer.StartApp(_platform);
         }
 
         [Test]
-        public void AppLaunches()
+        public void AddTask()
         {
-            app.Screenshot("First screen.");
+            var task = "Added Item";
+            _app.Tap(q => q.Marked("AddButton"));
+            _app.EnterText(q => q.Marked("AddEntry"), task);
+            _app.Tap(_page.AddButton);
+            _app.WaitForElement(_page.LabelOfTask(task));
         }
     }
 }
-
