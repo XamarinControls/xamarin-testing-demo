@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{192737BE-E477-45C3-983C-D8963CB2F210}</ProjectGuid>
+    <ProjectGuid>{B476E09E-1C9C-455F-A61D-909F38D7C46A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Todo.Tests.UI.Plain</RootNamespace>
-    <AssemblyName>Todo.Tests.UI.Plain</AssemblyName>
+    <RootNamespace>Todo.Tests.UI.Specflow</RootNamespace>
+    <AssemblyName>Todo.Tests.UI.Specflow</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -49,17 +49,38 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="TechTalk.SpecFlow, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.1.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.UITest, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.UITest.2.0.0\lib\Xamarin.UITest.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppInitializer.cs" />
+    <Compile Include="..\Todo.Tests.UI.PageObject\PageObjects\TodoPage.cs">
+      <Link>PageObjects\TodoPage.cs</Link>
+    </Compile>
+    <Compile Include="..\Todo.Tests.UI.Plain\AppInitializer.cs">
+      <Link>AppInitializer.cs</Link>
+    </Compile>
+    <Compile Include="StepDefinitions\StartPageSteps.cs" />
     <Compile Include="Tests.cs" />
+    <Compile Include="Todo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Todo.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TodoFeature.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Todo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Todo.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Todo\Todo.Droid\Todo.Droid.csproj">

@@ -13,7 +13,7 @@
           <ViewCell>
             <StackLayout Orientation="Horizontal">
               <Label Text="{Binding Description}" Margin="10" HorizontalOptions="FillAndExpand"></Label>
-              <Button Text=" X " Command="{Binding DeleteCommand}" CommandParameter="{Binding}"></Button>
+              <Button Text=" X " AutomationId="DeleteButton" Command="{Binding DeleteCommand}" CommandParameter="{Binding}"></Button>
             </StackLayout>
           </ViewCell>
         </DataTemplate>
@@ -21,8 +21,8 @@
     </ListView>
     
     <StackLayout Orientation="Horizontal">
-      <Entry Text="{Binding NewItemDescription}" HorizontalOptions="FillAndExpand"></Entry>
-      <Button Text=" + " Command="{Binding AddCommand}"></Button>
+      <Entry Text="{Binding NewItemDescription}" AutomationId="AddEntry" HorizontalOptions="FillAndExpand"></Entry>
+      <Button Text=" + " Command="{Binding AddCommand}" AutomationId="AddButton"></Button>
     </StackLayout>
   </StackLayout>
 </core:MvxContentPage>

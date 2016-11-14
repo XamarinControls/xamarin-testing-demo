@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{192737BE-E477-45C3-983C-D8963CB2F210}</ProjectGuid>
+    <ProjectGuid>{0B656958-4D42-4B9E-811D-FD01A22660FB}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Todo.Tests.UI.Plain</RootNamespace>
-    <AssemblyName>Todo.Tests.UI.Plain</AssemblyName>
+    <RootNamespace>Todo.Tests.UI.PageObject</RootNamespace>
+    <AssemblyName>Todo.Tests.UI.PageObject</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -55,17 +55,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppInitializer.cs" />
+    <Compile Include="..\Todo.Tests.UI.Plain\AppInitializer.cs">
+      <Link>AppInitializer.cs</Link>
+    </Compile>
+    <Compile Include="PageObjects\TodoPage.cs" />
     <Compile Include="Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Todo\Todo.Droid\Todo.Droid.csproj">
-      <Project>{088c3150-58ab-4b48-b9a3-754b6b5fe49b}</Project>
-      <Name>Todo.Droid</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
