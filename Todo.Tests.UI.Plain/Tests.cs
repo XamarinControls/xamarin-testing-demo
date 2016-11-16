@@ -25,10 +25,10 @@ namespace Todo.Tests.UI.Plain
         public void AddTask()
         {
             var task = "Added Item";
-            _app.Tap(q => q.Marked("AddButton"));
+            _app.Tap(q => q.Marked("AddEntry"));
             _app.EnterText(q => q.Marked("AddEntry"), task);
-            _app.Tap(_page.AddButton);
-            _app.WaitForElement(_page.LabelOfTask(task));
+            _app.Tap(q => q.Marked("AddButton"));
+            _app.WaitForElement(q => q.Class("ViewCellRenderer_ViewCellContainer").Descendant().Text(task));
         }
     }
 }

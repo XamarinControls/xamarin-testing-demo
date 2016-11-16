@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Todo.Contracts;
 using Todo.Models;
-using Todo.Pages;
-using Todo.ViewModels;
 
 namespace Todo.Services
 {
@@ -17,7 +15,7 @@ namespace Todo.Services
         {
             return _fakeDataBase = new List<TodoItem>
             {
-                new TodoItem {Id = Guid.NewGuid(), Description = "Buy some Milk"},
+                new TodoItem {Id = Guid.NewGuid(), Description = "Implement me on iOS"},
                 new TodoItem {Id = Guid.NewGuid(), Description = "Feed the cat"},
                 new TodoItem {Id = Guid.NewGuid(), Description = "Delete me"}
             };

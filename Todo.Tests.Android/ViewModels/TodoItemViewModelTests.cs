@@ -6,7 +6,7 @@ using NUnit.Framework;
 using Todo.Models;
 using Todo.ViewModels;
 
-namespace Todo.Tests.ViewModels
+namespace Todo.Tests.Android.ViewModels
 {
     [TestFixture]
     public class TodoItemViewModelTests
