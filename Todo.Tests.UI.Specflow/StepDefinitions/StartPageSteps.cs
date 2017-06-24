@@ -29,6 +29,7 @@ namespace Todo.Tests.UI.Specflow.StepDefinitions
             _app.Tap(_page.AddButton);
         }
 
+        [Given(@"the task ""(.*)"" is in the list")]
         [Then(@"the task ""(.*)"" should be added to the list")]
         public void ThenTheTaskShouldBeAddedToTheList(string task)
         {

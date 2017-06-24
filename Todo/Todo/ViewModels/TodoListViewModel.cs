@@ -72,6 +72,7 @@ namespace Todo.ViewModels
             {
                 var item = await _service.InsertItemAsync(NewItemDescription);
                 Items.Add(CreateTotoItemViewModel(item));
+                NewItemDescription = "";
             }
             catch (Exception ex)
             {

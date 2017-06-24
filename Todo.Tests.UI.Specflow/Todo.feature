@@ -9,5 +9,6 @@ Scenario: Add a task
 	Then the task "Added Task" should be added to the list
 
 Scenario: Delete a task
+	Given the task "Delete me" is in the list
 	When I delete the "Delete me" task 
 	Then the task "Delete me" should be removed from the list
